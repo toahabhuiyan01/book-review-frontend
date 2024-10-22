@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
-import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -13,7 +12,7 @@ import * as Yup from 'yup';
 import { UserLoginRegisterType } from '../types';
 import useAuthStore from '../store/AuthStore';
 import { CircularProgress } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import useAlertStore from '../store/AlertStore';
 import { AxiosError } from 'axios';
 
@@ -189,15 +188,12 @@ export default function SignIn({ page }: { page: 'login' | 'register' }) {
                     </Button>
                     <Typography sx={{ textAlign: 'center' }}>
                         { page === 'login' ? 'Don\'t have an account? ' : 'Already have an account? ' }
-                        <span>
-                            <Link
-                                href={ page === 'login' ? '/auth/register' : '/auth/login' }
-                                variant="body2"
-                                sx={{ alignSelf: 'center' }}
-                            >
-                                { page === 'login' ? 'Sign up' : 'Sign in' }
-                            </Link>
-                        </span>
+                        <Link
+                            style={{ color: 'blue'}}
+                            to={ page === 'login' ? '/auth/register' : '/auth/login' }
+                        >
+                            { page === 'login' ? 'Sign up' : 'Sign in' }
+                        </Link>
                     </Typography>
                 </Box>
             </Card>
