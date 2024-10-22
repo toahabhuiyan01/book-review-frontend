@@ -7,14 +7,14 @@ import axios from 'axios'
 import AlertCentral from './components/AlertCentral'
 
 function App() {
-  const { setAccessToken, accessToken, getUserData } = useAuthStore()
+  const { logout, accessToken, getUserData } = useAuthStore()
 
-  axios.defaults.baseURL = 'http://localhost:9090'
+  axios.defaults.baseURL = import.meta.env.VITE_API_URL
   axios.interceptors.response.use(
     (response) => response,
     (error) => {
       if (error.response.status === 401) {
-        setAccessToken(undefined)
+        logout()
       }
 
       return Promise.reject(error)
