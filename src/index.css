@@ -1,0 +1,22 @@
+.source-code-bold {
+  font-family: "Source Code Pro", monospace !important;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+body * {
+  font-family: "Source Code Pro", monospace !important;
+}
+
+.quoted-paragraph::before {
+  content: '\201C';
+  font-size: 2rem;
+}
+
+.quoted-paragraph::after {
+  content: '\201D';
+  font-size: 2rem;
+  position: absolute;
+}
