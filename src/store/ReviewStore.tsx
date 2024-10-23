@@ -8,7 +8,7 @@ type DefStoreType = {
 }
 const getStoreDefaultObject = (set: DefStoreType['set'], get: DefStoreType['get']) => ({
     currentPage: 1,
-    limit: 20,
+    limit: 10,
     loading: false,
     hasMore: true,
     items: [],
