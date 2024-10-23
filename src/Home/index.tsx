@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import RenderReviews from "../components/RenderReviews";
 
 export default function Home() {
-    const { fetchMoreItems, items, hasMore, loading, insert, totalCount } = useGlobalReviewStore()
+    const { fetchMoreItems, items, hasMore, loading, insert } = useGlobalReviewStore()
     const { quickInsert } =useUserReviewStore() 
 
     useEffect(() => {
