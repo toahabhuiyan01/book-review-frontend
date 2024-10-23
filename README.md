@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Quick Start
+```
+npm install
+npm run dev # Frontend running at (http://localhost:3000)
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### Please Checkout the deployed site if you face an issue while setup and Installation
+(https://book-review-frontend-one.vercel.app)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Use Manual
+- goto (http://localhost:3000)
+- create an user by inputing the user details
+- login with email and password.
+- in profile you can see the reviews added by you, add or edit your reviews.
+- click on the logo, it will redirect to home page. where you can se all the reviews.
+- from the navbar you can goto profile or login/logout
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+### This Project built with React + TypeScript + Vite
+### Tech Stack
+- ReactJS (TypeScript)
+- MaterialUI
+- Zustand ( State Management )
+- Formik for form action handling and validation
+- Lucid Icon for Icons
+- MongoDB (mongoose)

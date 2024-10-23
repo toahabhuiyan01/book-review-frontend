@@ -89,7 +89,6 @@ export default function UserProfile() {
 
                                     img.onload = () => {
                                         if(img.width > 1024 || img.height > 1024) {
-                                            console.log('Image must be below 1024x1024')
                                             setAlert('Image must be below 1024x1024', 'error')
 
                                             return
