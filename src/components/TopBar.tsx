@@ -11,6 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../store/AuthStore';
+import Logo from '../assets/Logo.png';
 
 function TopBar() {
     const navigate = useNavigate();
@@ -54,7 +55,7 @@ function TopBar() {
                         onClick={() => navigate('/public/home')}
                     >
                         <img
-                            src="/src/assets/Logo.png"
+                            src={Logo}
                             alt="logo"
                             style={{ height: '2rem', width: 'auto' }}
                         />
