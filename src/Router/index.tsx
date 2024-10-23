@@ -85,7 +85,7 @@ export default function RouterComponent() {
                 return
             }
 
-            if((!isAuthenticated && !isUnAuthRoute) || (isAuthenticated && isUnAuthRoute)) {
+            if((!isAuthenticated && !isUnAuthRoute) || (isAuthenticated && isUnAuthRoute) || (location.pathname === '/')) {
                 console.log('Redirecting to home page...')
 
                 navigate('/public/home')
