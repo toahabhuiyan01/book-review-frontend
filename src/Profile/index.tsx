@@ -25,7 +25,7 @@ export default function Profile() {
                     className='source-code-regular'
                     variant='h5'
                 >
-                    My Reviews ({totalCount})
+                    My Reviews ({totalCount?.toString()})
                 </Typography>
                 <AddEditReview
                     onSave={async (user) => {

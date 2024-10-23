@@ -81,6 +81,7 @@ const getStoreDefaultObject = (set: DefStoreType['set'], get: DefStoreType['get'
         set(
             (state) => ({
                 items: [...state.items, ...res.data.reviews],
+                totalCount: res.data.total,
                 currentPage: (+state.currentPage) + 1,
                 hasMore: res.data.total > currentPage * limit,
                 loading: false
