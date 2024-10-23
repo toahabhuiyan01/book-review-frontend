@@ -1,6 +1,6 @@
 import { Grid2 as Grid, IconButton, TextField, TextFieldProps, Typography, TypographyProps } from "@mui/material"
 import { Check, Edit, X } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 type EditableProps = {
     text: string
@@ -21,6 +21,10 @@ export default function Editable({ text, onChange, textFieldProps, typographyPro
         onChange(value)
         setIsEditing(false)
     }
+
+    useEffect(() => {
+        setValue(text)
+    }, [text])
 
     return (
         <Grid

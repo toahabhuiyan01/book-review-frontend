@@ -1,4 +1,4 @@
-import { Avatar, Box, Grid2 as Grid, Typography,  } from "@mui/material";
+import { Avatar, Box, CircularProgress, Grid2 as Grid, Typography,  } from "@mui/material";
 import UserDefaultImage from '../assets/user-avatar.png';
 import useAuthStore from "../store/AuthStore";
 import useAlertStore from "../store/AlertStore";
@@ -7,8 +7,23 @@ import { Upload } from "lucide-react";
 
 
 export default function UserProfile() {
-    const { user, patchUserData } = useAuthStore()
+    const { user, patchUserData, loading } = useAuthStore()
     const { setAlert } = useAlertStore()
+
+    if(loading) {
+        return (
+            <Grid
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                height='100%'
+                width='100%'
+                p={4}
+            >
+                <CircularProgress />
+            </Grid>
+        )
+    }
 
     return (
         <Grid

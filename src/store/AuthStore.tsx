@@ -17,6 +17,7 @@ type AuthStoreType = {
     accessToken?: string,
     jwtUser?: JWTUser['user'],
     isAuthenticated: boolean,
+    loading: boolean,
     getUserData: () => Promise<void>
     patchUserData: (data: UserPatchType) => Promise<void>
     setAccessToken: (accessToken: string | undefined) => void,
@@ -26,6 +27,7 @@ type AuthStoreType = {
 }
 
 const useAuthStore = create<AuthStoreType>((set) => ({
+        loading: false,
         isAuthenticated: !!localStorage.getItem('accessToken'),
         accessToken: localStorage.getItem('accessToken') || undefined,
         jwtUser: getJwtUser(),
@@ -59,8 +61,9 @@ const useAuthStore = create<AuthStoreType>((set) => ({
             )
         },
         getUserData: async () => {
+            set({ loading: true })
             const res = await axios.get('/user')
-            set({ user: res.data })
+            set({ user: res.data, loading: false })
         },
         patchUserData: async (data) => {
             await axios.patch('/user', data)
