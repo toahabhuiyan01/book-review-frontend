@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import RenderReviews from "../components/RenderReviews";
 
 export default function Home() {
-    const { fetchMoreItems, items, hasMore, loading, insert } = useGlobalReviewStore()
+    const { fetchMoreItems, items, hasMore, loading, insert, totalCount } = useGlobalReviewStore()
     const { quickInsert } =useUserReviewStore() 
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function Home() {
                     className='source-code-regular'
                     variant='h5'
                 >
-                    Reviews Feed
+                    Reviews Feed ({totalCount})
                 </Typography>
                 <AddEditReview
                     onSave={async(values) => {
