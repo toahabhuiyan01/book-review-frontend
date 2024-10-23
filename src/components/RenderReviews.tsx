@@ -17,7 +17,7 @@ type RenderReviewsProps = {
 }
 
 export default function RenderReviews({ state: { reviews, fetchMore, hasMore, loading } }: RenderReviewsProps) {
-    if(reviews.length === 0) {
+    if(reviews.length === 0 && !loading) {
         return (
             <Grid 
                 py={2}
