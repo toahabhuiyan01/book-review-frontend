@@ -41,7 +41,7 @@ export default function Home() {
             <RenderReviews
                 state={{
                     reviews: items,
-                    fetchMore: fetchMoreItems,
+                    fetchMore: () => fetchMoreItems(),
                     hasMore,
                     loading
                 }}

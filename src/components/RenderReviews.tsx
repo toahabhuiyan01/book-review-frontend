@@ -30,7 +30,7 @@ export default function RenderReviews({ state: { reviews, fetchMore, hasMore, lo
 
 
     return (
-        <Grid>
+        <Grid mb={3}>
             {
                 reviews.map((review) => (
                     <RenderReview
@@ -41,7 +41,7 @@ export default function RenderReviews({ state: { reviews, fetchMore, hasMore, lo
             }
             <Button
                 fullWidth
-                onClick={fetchMore}
+                onClick={() => fetchMore()}
                 disabled={!hasMore || loading}
             >
                 {

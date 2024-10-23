@@ -61,7 +61,12 @@ const getStoreDefaultObject = (set: DefStoreType['set'], get: DefStoreType['get'
     },
     fetchMoreItems: async (id?: string) => {
         const { currentPage, hasMore, limit } = get()
-        
+
+        console.log({
+            page: currentPage,
+            limit: limit,
+            id,
+        })
         if(!hasMore) {
             return
         }

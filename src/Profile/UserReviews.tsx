@@ -15,7 +15,7 @@ export default function UserReviews() {
         <RenderComments 
             state={{
                 reviews: items,
-                fetchMore: fetchMoreItems,
+                fetchMore: () => fetchMoreItems(user?.id),
                 hasMore,
                 loading
             }}
