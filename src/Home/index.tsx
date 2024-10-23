@@ -26,7 +26,7 @@ export default function Home() {
                     className='source-code-regular'
                     variant='h5'
                 >
-                    Reviews Feed ({totalCount?.toString()})
+                    Reviews Feed
                 </Typography>
                 <AddEditReview
                     onSave={async(values) => {

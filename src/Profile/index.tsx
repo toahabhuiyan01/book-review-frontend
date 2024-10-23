@@ -6,7 +6,7 @@ import { useGlobalReviewStore, useUserReviewStore } from "../store/ReviewStore";
 
 export default function Profile() {
     const { insert } = useUserReviewStore()
-    const { quickInsert, items, hasMore, totalCount } = useGlobalReviewStore()
+    const { quickInsert, items, hasMore } = useGlobalReviewStore()
     return (
         <Grid
             display='flex'
@@ -25,7 +25,7 @@ export default function Profile() {
                     className='source-code-regular'
                     variant='h5'
                 >
-                    My Reviews ({totalCount?.toString()})
+                    My Reviews
                 </Typography>
                 <AddEditReview
                     onSave={async (user) => {
