@@ -110,6 +110,7 @@ export default function AddEditReview({ review, onSave }: AddEditReviewProps) {
                         name="bookTitle"
                         value={commentForm.values.bookTitle}
                         onChange={commentForm.handleChange}
+                        onBlur={commentForm.handleBlur}
                         placeholder="Enter the book title"
                         disabled={!!review}
                         slotProps={{ input: { size: "small" } }}
@@ -122,12 +123,6 @@ export default function AddEditReview({ review, onSave }: AddEditReviewProps) {
                             commentForm.touched.bookTitle &&
                             commentForm.errors.bookTitle
                         }
-                        color={
-                            commentForm.errors.bookTitle &&
-                            commentForm.touched.bookTitle
-                                ? "error"
-                                : "primary"
-                        }
                     />
                 </Grid>
                 <Grid display="flex" flexDirection="column" gap={1}>
@@ -138,23 +133,18 @@ export default function AddEditReview({ review, onSave }: AddEditReviewProps) {
                         name="bookAuthor"
                         value={commentForm.values.bookAuthor}
                         onChange={commentForm.handleChange}
+                        onBlur={commentForm.handleBlur}
                         disabled={!!review}
                         placeholder="Enter the book author"
                         slotProps={{ input: { size: "small" } }}
                         error={
                             !!commentForm.errors.bookAuthor &&
-                            commentForm.touched.bookAuthor
+                            !!commentForm.touched.bookAuthor
                         }
                         helperText={
                             commentForm.errors.bookAuthor &&
                             commentForm.touched.bookAuthor &&
                             commentForm.errors.bookAuthor
-                        }
-                        color={
-                            commentForm.errors.bookAuthor &&
-                            commentForm.touched.bookAuthor
-                                ? "error"
-                                : "primary"
                         }
                     />
                 </Grid>
@@ -168,7 +158,11 @@ export default function AddEditReview({ review, onSave }: AddEditReviewProps) {
                         value={commentForm.values.reviewText}
                         onChange={commentForm.handleChange}
                         onBlur={commentForm.handleBlur}
-                        style={{ width: "20rem", height: "5rem", padding: 1 }}
+                        style={{
+                            width: "20rem",
+                            height: "5rem",
+                            padding: 1,
+                        }}
                     />
                     {commentForm.errors.reviewText &&
                         commentForm.touched.reviewText && (

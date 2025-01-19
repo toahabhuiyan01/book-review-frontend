@@ -26,7 +26,7 @@ type UserStoreType = {
     logout: () => void;
 };
 
-const useAuthState = create<UserStoreType>((set) => ({
+export const useAuthState = create<UserStoreType>((set) => ({
     loading: false,
     isAuthenticated: !!localStorage.getItem("accessToken"),
     accessToken: localStorage.getItem("accessToken") || undefined,

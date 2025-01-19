@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { StateType, BookReviewType, SetStateInternal } from "../types";
 import axios from "axios";
+import { useAuthState } from "./AuthStore";
 
 type DefStoreType = {
     set: SetStateInternal<StateType<BookReviewType>>;
@@ -56,6 +57,8 @@ const useReveiwActions = (store: StoreType) => {
         ...state
     } = store;
 
+    const { user } = useAuthState();
+
     const fetchMoreItems = async (id?: string) => {
         const { currentPage, limit, hasMore } = store;
 
@@ -81,8 +84,17 @@ const useReveiwActions = (store: StoreType) => {
     const insertItem = async (item: Partial<BookReviewType>) => {
         try {
             const res = await axios.post("/book-review", item);
-            quickInsert(res.data.review);
-            return res.data.review;
+
+            const review = {
+                ...res.data.review,
+                reviewer: {
+                    _id: user?.id,
+                    username: user?.username,
+                    email: user?.email,
+                },
+            };
+            quickInsert(review);
+            return review;
         } catch (error) {
             console.error("Error inserting item:", error);
             throw error;
