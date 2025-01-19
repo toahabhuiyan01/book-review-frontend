@@ -1,5 +1,5 @@
-import RegisterForm from './Form';
+import RegisterForm from "./Form";
 
 export default function Register() {
-    return (<RegisterForm page='register' />);
+    return <RegisterForm page="register" />;
 }
