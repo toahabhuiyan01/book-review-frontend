@@ -1,49 +1,17 @@
 import { create } from "zustand";
-import { StateType, BookReviewType, SetStateInternal } from "../types";
+import { StateType, BookReviewType } from "../types";
 import axios from "axios";
 import { useAuthState } from "./AuthStore";
-
-type DefStoreType = {
-    set: SetStateInternal<StateType<BookReviewType>>;
-};
+import { getStateDefaultObject } from "../utils/baseListState";
 
 type StoreType = StateType<BookReviewType>;
 
-const getStateDefaultObject = (set: DefStoreType["set"]) => ({
-    currentPage: 1,
-    limit: 10,
-    loading: false,
-    hasMore: true,
-    items: [],
-    quickInsert: (item: BookReviewType) => {
-        set((state) => ({
-            items: [item, ...state.items],
-        }));
-    },
-    quickUpdate: (id: string, item: Partial<BookReviewType>) => {
-        set((state) => ({
-            items: state.items.map((i) =>
-                i.id === id ? { ...i, ...item } : i
-            ),
-        }));
-    },
-    quickDelete: (id: string) => {
-        set((state) => ({
-            items: state.items.filter((i) => i.id !== id),
-        }));
-    },
-    setLoading: (loading: boolean) => set({ loading }),
-    setPagination: (currentPage: number, hasMore: boolean) =>
-        set((state) => ({ ...state, currentPage, hasMore })),
-    setItems: (items: BookReviewType[]) => set({ items }),
-});
-
 export const useUserState = create<StateType<BookReviewType>>((set) => ({
-    ...getStateDefaultObject(set),
+    ...getStateDefaultObject(set, (i) => i.id),
 }));
 
 export const useGlobalState = create<StateType<BookReviewType>>((set) => ({
-    ...getStateDefaultObject(set),
+    ...getStateDefaultObject(set, (i) => i.id),
 }));
 
 const useReveiwActions = (store: StoreType) => {
