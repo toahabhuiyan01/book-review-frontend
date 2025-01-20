@@ -131,10 +131,10 @@ const useReveiwActions = (store: StoreType) => {
     };
 };
 
-export const useReviewStoreUser = () => {
+export const useUserReviewStore = () => {
     return useReveiwActions(useUserState());
 };
 
-export const useReviewStoreGlobal = () => {
+export const useGlobalReviewStore = () => {
     return useReveiwActions(useGlobalState());
 };

@@ -2,11 +2,11 @@ import { Grid2 as Grid, Typography } from "@mui/material";
 import UserProfile from "./UserProfile";
 import AddEditReview from "../components/AddEditReview";
 import UserReviews from "./UserReviews";
-import { useReviewStoreGlobal, useReviewStoreUser } from "../store/ReviewStore";
+import { useGlobalReviewStore, useUserReviewStore } from "../store/ReviewStore";
 
 export default function Profile() {
-    const { insertItem } = useReviewStoreUser();
-    const { quickInsert, items, hasMore } = useReviewStoreGlobal();
+    const { insertItem } = useUserReviewStore();
+    const { quickInsert, items, hasMore } = useGlobalReviewStore();
     return (
         <Grid display="flex" flexDirection="column">
             <UserProfile />

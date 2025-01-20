@@ -14,7 +14,7 @@ import useAuthStore from "../store/AuthStore";
 import { Trash } from "lucide-react";
 import { useState } from "react";
 import useAlertStore from "../store/AlertStore";
-import { useReviewStoreGlobal, useReviewStoreUser } from "../store/ReviewStore";
+import { useGlobalReviewStore, useUserReviewStore } from "../store/ReviewStore";
 
 type RenderReviewsProps = {
     state: {
@@ -56,8 +56,8 @@ export default function RenderReviews({
 function RenderReview({ review }: { review: BookReviewType }) {
     const { jwtUser } = useAuthStore();
     const { setAlert } = useAlertStore();
-    const { updateItem, deleteItem } = useReviewStoreUser();
-    const { quickDelete, quickUpdate } = useReviewStoreGlobal();
+    const { updateItem, deleteItem } = useUserReviewStore();
+    const { quickDelete, quickUpdate } = useGlobalReviewStore();
     const [showConfirmation, setShowConfirmation] = useState(false);
 
     return (

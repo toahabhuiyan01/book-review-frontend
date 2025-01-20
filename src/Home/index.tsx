@@ -1,13 +1,13 @@
 import { Grid2 as Grid, Typography } from "@mui/material";
 import AddEditReview from "../components/AddEditReview";
-import { useReviewStoreGlobal, useReviewStoreUser } from "../store/ReviewStore";
+import { useGlobalReviewStore, useUserReviewStore } from "../store/ReviewStore";
 import { useEffect } from "react";
 import RenderReviews from "../components/RenderReviews";
 
 export default function Home() {
     const { fetchMoreItems, items, hasMore, loading, insertItem } =
-        useReviewStoreGlobal();
-    const { quickInsert } = useReviewStoreUser();
+        useGlobalReviewStore();
+    const { quickInsert } = useUserReviewStore();
 
     useEffect(() => {
         console.log(loading, items);
